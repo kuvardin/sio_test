@@ -72,7 +72,7 @@ class Purchase extends ApiMethodImmutable
         $tax_number_format = TaxNumberFormat::tryFromTaxNumberValue($tax_number);
 
         if ($tax_number_format === null) {
-            $exception = ApiException::withField(2005, self::FIELD_COUPON_CODE, $input, $exception);
+            $exception = ApiException::withField(2005, self::FIELD_TAX_NUMBER, $input, $exception);
         }
 
         $coupon = null;

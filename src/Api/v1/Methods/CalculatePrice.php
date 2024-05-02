@@ -88,8 +88,8 @@ class CalculatePrice extends ApiMethodImmutable
         return ProductPriceCalculator::calculateFinishPrice(
             price: $product->getPrice(),
             tax_number_format:  $tax_number_format,
-            discount_value: $coupon->getDiscountValue(),
-            discount_percent: $coupon->getDiscountPercents(),
+            discount_value: $coupon?->getDiscountValue(),
+            discount_percent: $coupon?->getDiscountPercents(),
         );
     }
 }

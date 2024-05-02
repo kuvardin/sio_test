@@ -7,12 +7,12 @@ namespace App\Enum;
 /**
  * Формат налогового номера
  */
-enum TaxNumberFormat
+enum TaxNumberFormat: string
 {
-    case Germany;
-    case Italy;
-    case Greece;
-    case France;
+    case Germany = 'GE';
+    case Italy = 'IT';
+    case Greece = 'GR';
+    case France = 'FR';
 
     /**
      * @var array<string, TaxNumberFormat> Регулярные выражения для определения формата

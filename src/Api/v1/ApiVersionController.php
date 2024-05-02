@@ -95,7 +95,7 @@ class ApiVersionController extends ApiVersionControllerAbstract
                         throw new RuntimeException("Method $method_class must return null");
                     }
 
-                    $public_data = self::processResult($method_result_field, $method_result, 'result');
+                    $public_data = self::processResult($method_result_field, $method_result, null, 'result');
                 }
 
                 $result = [

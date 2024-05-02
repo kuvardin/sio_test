@@ -1,13 +1,43 @@
+version: '3.1'
 services:
-    sio_test:
-        user: app
-        build:
-            context: .
-            args:
-                USER_ID: ${USER_ID}
+    sio_test_postgres:
+        build: docker/postgres
+        container_name: sio_test_postgres
         ports:
-            - "8337:8337"
-        volumes:
-            - .:/app:rw
+            - '65439:5432'
         environment:
-            - APP_ENV=dev
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: ${POSTGRES_DB}
+        restart: always
+        volumes:
+            - sio_test_pgdata:/var/lib/postgresql/data
+    sio_test_php:
+        build: docker/php-fpm
+        container_name: sio_test_php
+        environment:
+            APP_ENV: dev
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: ${POSTGRES_DB}
+        restart: always
+        volumes:
+            - ./:/var/www/backend
+            - ./docker/php-fpm/custom.conf:/usr/local/etc/php-fpm.d/custom.conf
+            - ./docker/php-fpm/bashrc:/root/.bashrc
+
+    sio_test:
+        build: docker/nginx
+        container_name: sio_test_nginx
+        restart: always
+        ports:
+            - '6580:80'
+            - '65443:443'
+        volumes:
+            - ./:/var/www/backend
+            - ./logs/nginx:/var/log/nginx
+            - ./docker/nginx/hosts/sio_test.local.conf:/etc/nginx/conf.d/default.conf
+
+volumes:
+    sio_test_pgdata:
+        driver: local

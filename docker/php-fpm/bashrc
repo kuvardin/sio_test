@@ -1,0 +1,1 @@
+alias engine="php /var/www/backend/public/index.php"

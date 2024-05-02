@@ -99,8 +99,8 @@ class Purchase extends ApiMethodImmutable
         $finish_price = ProductPriceCalculator::calculateFinishPrice(
             price: $product->getPrice(),
             tax_number_format:  $tax_number_format,
-            discount_value: $coupon->getDiscountValue(),
-            discount_percent: $coupon->getDiscountPercents(),
+            discount_value: $coupon?->getDiscountValue(),
+            discount_percent: $coupon?->getDiscountPercents(),
         );
 
         $purchase_status = $payment_processor->pay($finish_price);

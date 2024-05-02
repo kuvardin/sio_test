@@ -7,7 +7,6 @@ namespace App\Api;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBag;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 use Psr\Log\LoggerInterface;
 
 class ApiEnvironment

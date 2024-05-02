@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Api\v1;
 
-use App;
 use App\Api\v1\Input\ApiParameter;
 use App\Api\v1\Input\ApiParameterType;
 use RuntimeException;

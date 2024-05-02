@@ -11,7 +11,6 @@ use App\Api\v1\Input\ApiInput;
 use App\Api\v1\Input\ApiParameter;
 use App\Api\v1\Input\ApiParameterType;
 use App\Api\v1\Output\ApiField;
-use App\Api\v1\Output\ApiFieldType;
 use App\Entity\Coupon;
 use App\Entity\Payment;
 use App\Entity\Product;

@@ -1,3 +1,20 @@
+Перейти в папку с репозиторием и пследовательно выполнить следующие команды:
+```shell
+make init
+docker exec -ti sio_test_php bash
+composer install
+bin/console doctrine:migrations:migrate
+bin/console doctrine:fixtures:load
+```
+
+После этого сайт будет доступен по адресу: https://localhost:65443
+
+Автособираемая документация к API: https://localhost:65443/api/v1_doc
+
+По команде `bin/console app:generate-api-library` можно собрать js-библиотеку, которая лежит в папке /public/api.js
+
+-------------
+
 # Написать Symfony REST-приложение для расчета цены продукта и проведения оплаты
 
 Необходимо реализовать 2 эндпоинта:

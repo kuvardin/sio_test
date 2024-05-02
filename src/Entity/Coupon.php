@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
+use RuntimeException;
 use App\Repository\CouponRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,19 +21,19 @@ class Coupon
     private string $value;
 
     #[ORM\Column(nullable: true)]
-    private ?int $discount_percents = null;
+    private ?int $discount_percents;
 
     #[ORM\Column(nullable: true)]
-    private ?float $discount_value = null;
+    private ?float $discount_value;
 
     #[ORM\Column]
     private int $activations_number;
 
     #[ORM\Column(nullable: true)]
-    private ?int $activations_max = null;
+    private ?int $activations_max;
 
     #[ORM\Column(nullable: true)]
-    private ?DateTimeImmutable $active_until = null;
+    private ?DateTimeImmutable $active_until;
 
     #[ORM\Column]
     private DateTimeImmutable $created_at;

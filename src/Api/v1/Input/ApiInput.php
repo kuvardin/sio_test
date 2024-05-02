@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Api\v1\Input;
 
-use App;
 use App\Api\v1\ApiSelectionData;
 use App\Api\v1\ApiSelectionOptions;
 use App\Api\v1\ApiSortDirection;

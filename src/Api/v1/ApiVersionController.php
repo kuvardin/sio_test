@@ -165,7 +165,7 @@ class ApiVersionController extends ApiVersionControllerAbstract
 //        header('Cache-Control: no-store, no-cache, must-revalidate');
 //        header('Expires: ' . date('r'));
 //        header('Content-Type: application/json');
-        return new JsonResponse($result, 200, []);
+        return new JsonResponse($result, $result['ok'] ? 200 : 400, []);
     }
 
     /**

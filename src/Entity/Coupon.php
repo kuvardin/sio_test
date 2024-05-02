@@ -50,7 +50,7 @@ class Coupon
         $this->activations_number = 0;
         $this->activations_max = $activations_max;
         $this->active_until = $active_until;
-        $this->created_at = $created_at;
+        $this->created_at = $created_at ?? new DateTimeImmutable();
     }
 
     public function getId(): int
